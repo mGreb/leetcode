@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.17)
+project(leetcode)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
+add_compile_options("-Wall")
+
+add_subdirectory(1010)
