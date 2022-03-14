@@ -7,3 +7,4 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 add_compile_options("-Wall")
 
 add_subdirectory(1010)
+add_subdirectory(1094)
