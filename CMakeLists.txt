@@ -6,6 +6,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 add_compile_options("-Wall")
 
+add_subdirectory(0131)
 add_subdirectory(1000)  # TOO SLOW! DOES NOT WORK!
 add_subdirectory(1010)
 add_subdirectory(1094)
