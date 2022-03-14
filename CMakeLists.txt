@@ -10,6 +10,7 @@ add_subdirectory(0131)
 add_subdirectory(1000)  # TOO SLOW! DOES NOT WORK!
 add_subdirectory(1009)
 add_subdirectory(1010)
+add_subdirectory(1022)
 add_subdirectory(1041)
 add_subdirectory(1094)
 add_subdirectory(1137)
