@@ -13,34 +13,19 @@
 
 class Solution {
 public:
-	static int numPairsDivisibleBy601(std::vector<int> time) {
-		const size_t n = time.size();
-		
-		if (n < 2)
-			return 0;
-		
-		int result = 0;
-		for (size_t i = 0; i < n - 1; ++i)
-			for (size_t j = i + 1; j < n; ++j)
-				if ((time[i] + time[j]) % 60 == 0)
-					++result;
-		
-		return result;
-	}
-	
-	static int numPairsDivisibleBy60(std::vector<int> time) {
+	static int numPairsDivisibleBy60(const std::vector<int> &time) {
 		const size_t n = time.size();
 		
 		if (n < 2)
 			return 0;
 		
 		// store all remainders
-		std::array<int, 60> rem_60 = {};
+		std::array<size_t, 60> rem_60 = {};
 		for (size_t i = 0; i < n; ++i)
 			++rem_60[time[i] % 60];
 		
 		// now, figure out how much pairs possible with this remainders
-		int result = 0;
+		size_t result = 0;
 		for (size_t i = 1; i < 30; ++i)
 			result += rem_60[i] * rem_60[60 - i];
 		result += rem_60[0] * (rem_60[0] - 1) / 2 + rem_60[30] * (rem_60[30] - 1) / 2;
