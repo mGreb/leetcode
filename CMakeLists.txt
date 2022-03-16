@@ -6,6 +6,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 add_compile_options("-Wall")
 
+add_subdirectory(0001)
 add_subdirectory(0002)
 add_subdirectory(0003)
 add_subdirectory(0004)
