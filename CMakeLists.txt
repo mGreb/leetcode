@@ -8,6 +8,7 @@ add_compile_options("-Wall")
 
 add_subdirectory(0002)
 add_subdirectory(0003)
+add_subdirectory(0004)
 add_subdirectory(0008)
 add_subdirectory(0067)
 add_subdirectory(0070)
