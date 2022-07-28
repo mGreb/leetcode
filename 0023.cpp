@@ -5,6 +5,8 @@
  */
 
 #include <vector>
+#include <set>
+#include <queue>
 
 struct ListNode {
      int val;
@@ -15,10 +17,71 @@ struct ListNode {
  };
 
 class Solution {
+  struct comp {
+    bool operator()(const std::pair<int, ListNode*>& a, const std::pair<int, ListNode*>& b) const {
+      return a.first > b.first;
+    }
+  };
+public:
+  ListNode* mergeKLists(std::vector<ListNode*>& lists) {
+    std::priority_queue<std::pair<int, ListNode*>, std::vector<std::pair<int, ListNode*>>, comp> my_pr_queue;
+    for (auto l : lists)
+      if (l != nullptr)
+        my_pr_queue.push({l->val, l});
+    ListNode* temp_head = new ListNode(0);
+    ListNode* curr = temp_head;
+    while (!my_pr_queue.empty()) {
+      ListNode* smallest = my_pr_queue.top().second;
+      
+      curr->next = smallest;
+      curr = curr->next;
+      
+      my_pr_queue.pop();  // my_pr_queue.begin());
+      if (smallest->next != nullptr)
+        my_pr_queue.push({smallest->next->val, smallest->next});
+    }
+    curr = temp_head->next;
+    delete temp_head;
+    return curr;
+  }
+};
+
+class Solution0 {
+  struct comp {
+    bool operator()(const std::pair<int, ListNode*>& a, const std::pair<int, ListNode*>& b) const {
+      return a.first < b.first;
+    }
+  };
+public:
+  ListNode* mergeKLists(std::vector<ListNode*>& lists) {
+    std::multiset<std::pair<int, ListNode*>, comp> my_set;
+    for (auto l : lists)
+      if (l != nullptr)
+        my_set.insert({l->val, l});
+    ListNode* temp_head = new ListNode(0);
+    ListNode* curr = temp_head;
+    while (!my_set.empty()) {
+      ListNode* smallest = my_set.begin()->second;
+      
+      curr->next = smallest;
+      curr = curr->next;
+      
+      my_set.erase(my_set.begin());
+      if (smallest->next != nullptr)
+        my_set.insert({smallest->next->val, smallest->next});
+    }
+    curr = temp_head->next;
+    delete temp_head;
+    return curr;
+  }
+};
+
+class Solution1 {
 	int getMinListNodePos(std::vector<ListNode*>& lists) {
 		
 		// find first non-null element
-		int minVal = 0, null_cnt = 0;
+		int minVal = 0;
+    size_t null_cnt = 0;
 		for (const auto& node : lists)
 			if (node != nullptr) {
 				minVal = node->val;
@@ -31,7 +94,7 @@ class Solution {
 			return ind;
 		
 		// find min element among non-null elements in all lists
-		for (int i = 0; i < lists.size(); ++i)
+		for (size_t i = 0; i < lists.size(); ++i)
 			if (lists[i] != nullptr)
 				if (minVal >= lists[i]->val) {
 					minVal = lists[i]->val;
@@ -68,5 +131,26 @@ public:
 };
 
 int main() {
-	return 0;
+  Solution s;
+  ListNode* a = new ListNode(1);
+  {
+    ListNode* a1 = new ListNode(1);
+    ListNode* a2 = new ListNode(5);
+    ListNode* a3 = new ListNode(7);
+    a->next = a1;
+    a1->next = a2;
+    a2->next = a3;
+  }
+  ListNode* b = new ListNode(2);
+  {
+    ListNode* b1 = new ListNode(4);
+    ListNode* b2 = new ListNode(6);
+    ListNode* b3 = new ListNode(8);
+    b->next = b1;
+    b1->next = b2;
+    b2->next = b3;
+  }
+  std::vector<ListNode*> v = {a, b};
+  ListNode* res = s.mergeKLists(v);
+  return 0;
 }
