@@ -27,6 +27,7 @@ public:
 
 int main() {
   Solution s;
+  const bool res0 = s.search({1,3,5}, 3) == 1;
   const bool res1 = s.search({-1,0,3,5,9,12}, 9) == 4;
   const bool res2 = s.search({-1,0,3,5,9,12}, 2) == -1;
   const bool res3 = s.search({0}, 0) == 0;
