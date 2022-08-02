@@ -9,11 +9,10 @@
 
 class Solution {
 public:
-	int maxSubArray(const std::vector<int>& nums) {
+	static int maxSubArray(const std::vector<int>& nums) {
 		int cur_sum = nums[0];
 		int max_sum = nums[0];
-		int sz = nums.size();
-		for (int i = 1; i < sz; ++i) {
+		for (size_t i = 1; i < nums.size(); ++i) {
 			cur_sum = std::max(nums[i], cur_sum + nums[i]);
 			max_sum = std::max(cur_sum, max_sum);
 		}
@@ -22,9 +21,9 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.maxSubArray({-2,1,-3,4,-1,2,1,-5,4}) == 6;
-	const bool res2 = s.maxSubArray({1}) == 1;
-	const bool res3 = s.maxSubArray({5,4,-1,7,8}) == 23;
+	std::vector<bool> res;
+	res.push_back(Solution::maxSubArray({-2,1,-3,4,-1,2,1,-5,4}) == 6);
+	res.push_back(Solution::maxSubArray({1}) == 1);
+	res.push_back(Solution::maxSubArray({5,4,-1,7,8}) == 23);
 	return 0;
 }

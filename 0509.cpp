@@ -8,6 +8,8 @@
  * Given n, calculate F(n).
  * */
 
+#include <vector>
+
 class Solution {
 public:
 	int fib(int n) {
@@ -19,9 +21,10 @@ public:
 
 int main() {
 	Solution s;
-	const bool res1 = s.fib(1) == 1;
-	const bool res2 = s.fib(2) == 1;
-	const bool res3 = s.fib(3) == 2;
-	const bool res4 = s.fib(4) == 3;
+	std::vector<bool> res;
+	res.push_back(s.fib(1) == 1);
+	res.push_back(s.fib(2) == 1);
+	res.push_back(s.fib(3) == 2);
+	res.push_back(s.fib(4) == 3);
 	return 0;
 }

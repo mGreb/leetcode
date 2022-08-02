@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-	std::string longestCommonPrefix(const std::vector<std::string>& strs) {
+	static std::string longestCommonPrefix(const std::vector<std::string>& strs) {
 		const std::string& shortest = *std::min_element(strs.begin(), strs.end(),
 												  [](const std::string& s1, const std::string& s2){return s1.size() < s2.size();});
 		std::string prefix;
@@ -25,11 +25,8 @@ public:
 };
 
 int main() {
-	
-	Solution s;
-	
-	const bool res1 = s.longestCommonPrefix({"flower","flow","flight"}) == "fl";
-	const bool res2 = s.longestCommonPrefix({"dog","racecar","car"}) == "";
-	
+	std::vector<bool> res;
+	res.push_back(Solution::longestCommonPrefix({"flower","flow","flight"}) == "fl");
+	res.push_back(Solution::longestCommonPrefix({"dog","racecar","car"}) == "");
 	return 0;
 }

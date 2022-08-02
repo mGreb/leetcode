@@ -27,14 +27,15 @@ public:
 
 int main() {
   Solution s;
-  const bool res0 = s.search({1,3,5}, 3) == 1;
-  const bool res1 = s.search({-1,0,3,5,9,12}, 9) == 4;
-  const bool res2 = s.search({-1,0,3,5,9,12}, 2) == -1;
-  const bool res3 = s.search({0}, 0) == 0;
-  const bool res4 = s.search({}, 999) == -1;
-  const bool res5 = s.search({2, 3}, 2) == 0;
-  const bool res6 = s.search({-1, 2}, 2) == 1;
-  const bool res7 = s.search({-1, 1}, 2) == -1;
-  const bool res8 = s.search({-1}, 2) == -1;
+  std::vector<bool> res;
+  res.push_back(s.search({1,3,5}, 3) == 1);
+  res.push_back(s.search({-1,0,3,5,9,12}, 9) == 4);
+  res.push_back(s.search({-1,0,3,5,9,12}, 2) == -1);
+  res.push_back(s.search({0}, 0) == 0);
+  res.push_back(s.search({}, 999) == -1);
+  res.push_back(s.search({2, 3}, 2) == 0);
+  res.push_back(s.search({-1, 2}, 2) == 1);
+  res.push_back(s.search({-1, 1}, 2) == -1);
+  res.push_back(s.search({-1}, 2) == -1);
   return 0;
 }

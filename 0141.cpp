@@ -11,15 +11,17 @@
  *  -10^5 <= Node.val <= 10^5
  *  pos is -1 or a valid index in the linked-list.*/
 
+#include <vector>
+
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {}
+    explicit ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
 public:
-  bool hasCycle(ListNode *head) {
+  static bool hasCycle(ListNode *head) {
     
     if (head == nullptr || head->next == nullptr)
       return false;
@@ -44,33 +46,32 @@ public:
 };
 
 int main() {
-  Solution s;
-  ListNode* a = new ListNode(1);
-  {
-    ListNode* a1 = new ListNode(1);
-    ListNode* a2 = new ListNode(5);
-    ListNode* a3 = new ListNode(7);
-    a->next = a1;
-    a1->next = a2;
-    a2->next = a3;
-  }
-  ListNode* b = new ListNode(2);
-  {
-    ListNode* b1 = new ListNode(4);
-    ListNode* b2 = new ListNode(6);
-    ListNode* b3 = new ListNode(8);
-    ListNode* b4 = new ListNode(9);
-    b->next = b1;
-    b1->next = b2;
-    b2->next = b3;
-    b3->next = b4;
-    b4->next = b2;
-  }
-  ListNode* c = new ListNode(0);
-  ListNode* d = nullptr;
-  const bool res1 = s.hasCycle(a) == false;
-  const bool res2 = s.hasCycle(b) == true;
-  const bool res3 = s.hasCycle(c) == false;
-  const bool res4 = s.hasCycle(d) == false;
+  ListNode  a(1);
+  ListNode a1(1);
+  ListNode a2(5);
+  ListNode a3(7);
+   a.next = &a1;
+  a1.next = &a2;
+  a2.next = &a3;
+  
+  ListNode  b(2);
+  ListNode b1(4);
+  ListNode b2(6);
+  ListNode b3(8);
+  ListNode b4(9);
+   b.next = &b1;
+  b1.next = &b2;
+  b2.next = &b3;
+  b3.next = &b4;
+  b4.next = &b2;
+  
+  ListNode c(0);
+  ListNode *d = nullptr;
+  
+  std::vector<bool> res;
+  res.push_back(Solution::hasCycle(&a) == false);
+  res.push_back(Solution::hasCycle(&b) == true);
+  res.push_back(Solution::hasCycle(&c) == false);
+  res.push_back(Solution::hasCycle(d) == false);
   return 0;
 }

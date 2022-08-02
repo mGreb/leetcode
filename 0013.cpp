@@ -25,10 +25,11 @@
  * */
 
 #include <string>
+#include <vector>
 
 class Solution {
 public:
-    int romanToInt(std::string s) {
+    static int romanToInt(std::string s) {
         const size_t n = s.size();
         size_t pos = 0;
         size_t res = 0;
@@ -107,9 +108,9 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.romanToInt("III") == 3;
-	const bool res2 = s.romanToInt("LVIII") == 58;
-	const bool res3 = s.romanToInt("MCMXCIV") == 1994;
-    return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::romanToInt("III") == 3);
+  res.push_back(Solution::romanToInt("LVIII") == 58);
+  res.push_back(Solution::romanToInt("MCMXCIV") == 1994);
+  return 0;
 }

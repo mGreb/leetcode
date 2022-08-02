@@ -32,7 +32,7 @@ public:
     std::priority_queue<elem, std::vector<elem>, cmp> pr_q;
     for (const auto& item : string_count) {
       pr_q.push(item);
-      if (pr_q.size() > k)
+      if (pr_q.size() > (size_t)k)
         pr_q.pop();
     }
     

@@ -4,6 +4,7 @@
  * */
 
 #include <string>
+#include <vector>
 #include <array>
 
 class Solution {
@@ -90,12 +91,13 @@ public:
 
 int main() {
     Solution s;
-    const bool res1 = s.numberToWords(1) == "One";
-    const bool res2 = s.numberToWords(20) == "Twenty";
-    const bool res21 = s.numberToWords(30) == "Thirty";
-    const bool res22 = s.numberToWords(101) == "One Hundred One";
-    const bool res3 = s.numberToWords(123) == "One Hundred Twenty Three";
-    const bool res4 = s.numberToWords(12345) == "Twelve Thousand Three Hundred Forty Five";
-    const bool res5 = s.numberToWords(1234567) == "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven";
+    std::vector<bool> res;
+    res.push_back(s.numberToWords(1) == "One");
+    res.push_back(s.numberToWords(20) == "Twenty");
+    res.push_back(s.numberToWords(30) == "Thirty");
+    res.push_back(s.numberToWords(101) == "One Hundred One");
+    res.push_back(s.numberToWords(123) == "One Hundred Twenty Three");
+    res.push_back(s.numberToWords(12345) == "Twelve Thousand Three Hundred Forty Five");
+    res.push_back(s.numberToWords(1234567) == "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven");
     return 0;
 }

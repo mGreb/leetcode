@@ -61,6 +61,6 @@ int main()
     TreeNode l1l(1), l1r(3);
     root.left = &l1; root.right = &r1;
     l1.left = &l1l; l1.right = &l1r;
-    auto res = s.insertIntoBST(&root, 5);
+    [[maybe_unused]] TreeNode* res = s.insertIntoBST(&root, 5);
     return 0;
 }

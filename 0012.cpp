@@ -25,10 +25,11 @@
  * */
 
 #include <string>
+#include <vector>
 
 class Solution {
 public:
-    std::string intToRoman(int num) {
+    static std::string intToRoman(int num) {
         std::string res;
         while (num != 0) {
             if (num >= 1000) {
@@ -102,10 +103,10 @@ public:
 };
 
 int main() {
-    Solution s;
-    const bool res1 = s.intToRoman(1900) == "MCM";
-    const bool res2 = s.intToRoman(3) == "III";
-    const bool res3 = s.intToRoman(58) == "LVIII";
-    const bool res4 = s.intToRoman(1994) == "MCMXCIV";
-    return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::intToRoman(1900) == "MCM");
+  res.push_back(Solution::intToRoman(3) == "III");
+  res.push_back(Solution::intToRoman(58) == "LVIII");
+  res.push_back(Solution::intToRoman(1994) == "MCMXCIV");
+  return 0;
 }

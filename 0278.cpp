@@ -12,6 +12,8 @@
  * You should minimize the number of calls to the API.
  * */
 
+#include <vector>
+
 class Solution {
 public:
   bool isBadVersion(int version) {
@@ -39,7 +41,7 @@ public:
 
 int main() {
   Solution s;
-  const bool res1 = s.firstBadVersion(5) == 4;
-  
+  std::vector<bool> res;
+  res.push_back(s.firstBadVersion(5) == 4);
   return 0;
 }

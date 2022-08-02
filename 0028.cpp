@@ -11,10 +11,11 @@
  * */
 
 #include <string>
+#include <vector>
 
 class Solution {
 public:
-	int strStr(const std::string &haystack, const std::string &needle) {
+	static int strStr(const std::string &haystack, const std::string &needle) {
 		if (needle.empty())
 			return 0;
 		
@@ -40,13 +41,13 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.strStr("hello", "ll") == 2;
-	const bool res2 = s.strStr("hello", "pew") == -1;
-	const bool res3 = s.strStr("hello", "o") == 4;
-	const bool res4 = s.strStr("hello", "hello") == 0;
-	const bool res5 = s.strStr("hellop", "hello") == 0;
-	const bool res6 = s.strStr("hellop", "pew") == -1;
-	const bool res7 = s.strStr("mississippi", "issip") == 4;
+	std::vector<bool> res;
+	res.push_back(Solution::strStr("hello", "ll") == 2);
+	res.push_back(Solution::strStr("hello", "pew") == -1);
+	res.push_back(Solution::strStr("hello", "o") == 4);
+	res.push_back(Solution::strStr("hello", "hello") == 0);
+	res.push_back(Solution::strStr("hellop", "hello") == 0);
+	res.push_back(Solution::strStr("hellop", "pew") == -1);
+	res.push_back(Solution::strStr("mississippi", "issip") == 4);
 	return 0;
 }

@@ -7,3 +7,7 @@ public:
     return std::accumulate(nums.begin(), nums.end(), 0, [](int a, int b){return a^b;});
   }
 };
+
+int main() {
+  return 0;
+}

@@ -13,7 +13,7 @@
 
 class Solution {
 private:
-    void process_word(std::string& s, size_t start, size_t end) {
+    static void process_word(std::string& s, size_t start, size_t end) {
         if (end - start <= 2)
             s[start] = std::tolower(s[start]);
         else
@@ -25,7 +25,7 @@ private:
 public:
     // if word is 1-2 letters lenght, transform word to lowercase
     // if word > 2 letters in length, make first letter capital and the rest lowercase
-    std::string capitalizeTitle(std::string title) {
+    static std::string capitalizeTitle(std::string title) {
         
         const size_t n = title.size();
         // find spaces positions
@@ -49,10 +49,10 @@ public:
 };
 
 int main() {
-    Solution s;
-    const bool res1 = s.capitalizeTitle("LPJOJ") == "Lpjoj";
-    const bool res2 = s.capitalizeTitle("capiTalIze tHe titLe") == "Capitalize The Title";
-    const bool res3 = s.capitalizeTitle("First leTTeR of EACH Word") == "First Letter of Each Word";
-    const bool res4 = s.capitalizeTitle("i lOve leetcode") == "i Love Leetcode";
+    std::vector<bool> res;
+    res.push_back(Solution::capitalizeTitle("LPJOJ") == "Lpjoj");
+    res.push_back(Solution::capitalizeTitle("capiTalIze tHe titLe") == "Capitalize The Title");
+    res.push_back(Solution::capitalizeTitle("First leTTeR of EACH Word") == "First Letter of Each Word");
+    res.push_back(Solution::capitalizeTitle("i lOve leetcode") == "i Love Leetcode");
     return 0;
 }

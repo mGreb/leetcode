@@ -19,7 +19,7 @@ public:
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 		
 		// deal with empty lists
-		if (l1 && !l2 || !l1 && !l2)
+		if ((l1 && !l2) || (!l1 && !l2))
 			return l1;
 		if (!l1 && l2)
 			return l2;

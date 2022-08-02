@@ -16,9 +16,9 @@
 
 class Solution {
 public:
-	int removeElement(std::vector<int>& nums, int val) {
+	static int removeElement(std::vector<int>& nums, int val) {
 		int cnt = 0;
-		for (int i = 0; i < nums.size(); ++i)
+		for (size_t i = 0; i < nums.size(); ++i)
 			if(nums[i] != val)
 				nums[cnt++] = nums[i];
 		return cnt;
@@ -26,46 +26,45 @@ public:
 };
 
 int main() {
-	Solution s;
 	{
 		std::vector<int> v =     {3, 2, 2, 3};
 		std::vector<int> v_new = {2, 2, 3, 3};
-		const int res = s.removeElement(v, 3);
+		const int res = Solution::removeElement(v, 3);
 		assert (res == 2);
 //		assert(v == v_new);
 	}
 	{
 		std::vector<int> v =     {0,1,2,2,3,0,4,2};
 		std::vector<int> v_new = {0,1,4,0,3,2,2,2};
-		const int res = s.removeElement(v, 2);
+		const int res = Solution::removeElement(v, 2);
 		assert (res == 5);
 //		assert(v == v_new);
 	}
 	{
 		std::vector<int> v =     {1,1,1,1,1,1,1,1};
 		std::vector<int> v_new = {1,1,1,1,1,1,1,1};
-		const int res = s.removeElement(v, 2);
+		const int res = Solution::removeElement(v, 2);
 		assert (res == 8);
 //		assert(v == v_new);
 	}
 	{
 		std::vector<int> v =     {1,1,1,1,1,1,1,1};
 		std::vector<int> v_new = {1,1,1,1,1,1,1,1};
-		const int res = s.removeElement(v, 1);
+		const int res = Solution::removeElement(v, 1);
 		assert (res == 0);
 //		assert(v == v_new);
 	}
 	{
 		std::vector<int> v =     {1};
 		std::vector<int> v_new = {1};
-		const int res = s.removeElement(v, 1);
+		const int res = Solution::removeElement(v, 1);
 		assert (res == 0);
 //		assert(v == v_new);
 	}
 	{
 		std::vector<int> v =     {2,2,3};
 		std::vector<int> v_new = {3,2,2};
-		const int res = s.removeElement(v, 2);
+		const int res = Solution::removeElement(v, 2);
 		assert (res == 1);
 //		assert(v == v_new);
 	}

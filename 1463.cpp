@@ -20,9 +20,11 @@ class Solution {
 	int dp(int row, int col1, int col2, const std::vector<std::vector<int>> &grid,
 		   std::vector<std::vector<std::vector<int>>> &cache)
 	{
-		if (row < 0 || row >= grid.size()
-			|| col1 < 0 || col1 >= grid[0].size()
-			|| col2 < 0 || col2 >= grid[0].size())
+	  const int n = (int)grid.size();
+	  const int n_0 = (int)grid[0].size();
+		if (row < 0 || row >= n
+			|| col1 < 0 || col1 >= n_0
+			|| col2 < 0 || col2 >= n_0)
 			return 0;
 		
 		if (cache[row][col1][col2] != -1)
@@ -33,7 +35,7 @@ class Solution {
 		if (col1 != col2)
 			result += grid[row][col2];
 		
-		if (row != grid.size() - 1)
+		if (row != n - 1)
 		{
 			int max = 0;
 			for (int new_col1 = col1 - 1; new_col1 <= col1 + 1; ++new_col1)

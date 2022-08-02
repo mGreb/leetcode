@@ -40,8 +40,9 @@ public:
 int main()
 {
 	Solution s;
-	const bool res1 = s.carPooling({{2, 1, 5}, {3, 3, 7}}, 4);
-	const bool res2 = s.carPooling({ {2, 1, 5}, {3, 3, 7} }, 5);
-	const bool res3 = s.carPooling( {{2,1,5}, {3,5,7}}, 3);
+	std::vector<bool> res;
+	res.push_back(s.carPooling({{2, 1, 5}, {3, 3, 7}}, 4) == false);
+	res.push_back(s.carPooling({ {2, 1, 5}, {3, 3, 7} }, 5) == true);
+	res.push_back(s.carPooling( {{2,1,5}, {3,5,7}}, 3) == true);
 	return 0;
 }

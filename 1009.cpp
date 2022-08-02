@@ -7,13 +7,14 @@
  * */
 
 #include <cmath>
+#include <vector>
 
 class Solution {
 public:
 	int bitwiseComplement(int n) {
 		if (n == 0) return 1;
-		int bits = floor(log2(n)) + 1;
-		int comp = ((1 << bits) - 1) ^ n;
+		const int bits = floor(log2(n)) + 1;
+		const int comp = ((1 << bits) - 1) ^ n;
 		return comp;
 	}
 };
@@ -21,6 +22,10 @@ public:
 int main()
 {
 	Solution s;
-	int res = s.bitwiseComplement(0);
+	std::vector<bool> res;
+	res.push_back(s.bitwiseComplement(0) == 1);
+	res.push_back(s.bitwiseComplement(5) == 2);
+	res.push_back(s.bitwiseComplement(7) == 0);
+	res.push_back(s.bitwiseComplement(10) == 5);
 	return 0;
 }

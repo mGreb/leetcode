@@ -26,12 +26,12 @@ private:
         return true;
     }
 public:
-    WordDictionary() {}
-
+    WordDictionary() = default;
+    
     void addWord(std::string word) {
         dict[word.size()].insert(word);
     }
-
+    
     bool search(std::string word) {
         const size_t n = word.size();
         if (dict.count(n) != 0) {
@@ -60,13 +60,14 @@ int main() {
     obj.addWord("bad");
     obj.addWord("dad");
     obj.addWord("mad");
-
-    const bool b1 = obj.search("de.f") == true;
-    const bool b2 = obj.search("de.c") == false;
-    const bool b3 = obj.search("pad") == false;
-    const bool b4 = obj.search("bad") == true;
-    const bool b5 = obj.search(".ad") == true;
-    const bool b6 = obj.search("b..") == true;
+    
+    std::vector<bool> res;
+    res.push_back(obj.search("de.f") == true);
+    res.push_back(obj.search("de.c") == false);
+    res.push_back(obj.search("pad") == false);
+    res.push_back(obj.search("bad") == true);
+    res.push_back(obj.search(".ad") == true);
+    res.push_back(obj.search("b..") == true);
     
     return 0;
 }

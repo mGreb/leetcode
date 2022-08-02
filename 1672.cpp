@@ -27,6 +27,7 @@ public:
 
 int main() {
 	Solution s;
-	const bool res1 = s.maximumWealth({{1,2,3},{3,2,1}}) == 6;
+  std::vector<bool> res;
+	res.push_back(s.maximumWealth({{1,2,3},{3,2,1}}) == 6);
 	return 0;
 }

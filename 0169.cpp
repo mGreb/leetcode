@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-    int majorityElement(const std::vector<int>& nums) {
+    static int majorityElement(const std::vector<int>& nums) {
         // Boyer-Moore algorithm
         int current = nums[0];
         size_t cnt = 0;
@@ -27,8 +27,8 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.majorityElement({3, 2, 3}) == 3;
-	const bool res2 = s.majorityElement({2, 2, 1, 1, 1, 2, 2}) == 2;
+	std::vector<bool> res;
+	res.push_back(Solution::majorityElement({3, 2, 3}) == 3);
+	res.push_back(Solution::majorityElement({2, 2, 1, 1, 1, 2, 2}) == 2);
 	return 0;
 }

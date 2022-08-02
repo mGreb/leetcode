@@ -8,6 +8,8 @@
  * The test cases are generated so that the answer fits in a 32-bits integer.
  * */
 
+#include <vector>
+
 struct TreeNode
 {
     int val;
@@ -53,6 +55,7 @@ int main()
     root.left = &l1; root.right = &r1;
     l1.left = &l1l; l1.right = &l1r;
     r1.left = &r1l; r1.right = &r1r;
-    int res = s.sumRootToLeaf(&root);
+    std::vector<bool> res;
+    res.push_back(s.sumRootToLeaf(&root) == 22);
     return 0;
 }

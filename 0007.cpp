@@ -1,16 +1,17 @@
 /*
  * 7. Reverse Integer
  * Given a signed 32-bit integer x, return x with its digits reversed.
- * If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+ * If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
  * Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
  * */
 
 #include <climits>
 #include <cmath>
+#include <vector>
 
 class Solution {
 public:
-	int reverse(int x) {
+	static int reverse(int x) {
 		
 		if (x <= INT_MIN || x >= INT_MAX)
 			return 0;
@@ -36,9 +37,9 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.reverse(123) == 321;
-	const bool res2 = s.reverse(-123) == -321;
-	const bool res3 = s.reverse(120) == 21;
+	std::vector<bool> res;
+	res.push_back(Solution::reverse(123) == 321);
+	res.push_back(Solution::reverse(-123) == -321);
+	res.push_back(Solution::reverse(120) == 21);
 	return 0;
 }

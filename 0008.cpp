@@ -26,26 +26,26 @@
 
 class Solution {
 private:
-    void ignore_whitespace(const std::string &s, size_t &pos)
+    static void ignore_whitespace(const std::string &s, size_t &pos)
     {
         while (s[pos] == ' ' && pos < s.size())
             pos++;
     }
-    void ignore_letters(const std::string &s, size_t &pos)
+    static void ignore_letters(const std::string &s, size_t &pos)
     {
         while (s[pos] > 57 && pos < s.size())
             pos++;
     }
-    void ignore_zeros(const std::string &s, size_t &pos)
+    static void ignore_zeros(const std::string &s, size_t &pos)
     {
         while (s[pos] == '0' && pos < s.size())
             ++pos;
     }
-    bool is_plus(char c) {return c == '+';}
-    bool is_minus(char c) {return c == '-';}
-    bool is_digit(char c) {return c >= 48 && c <= 57;}
+    static bool is_plus(char c) {return c == '+';}
+    static bool is_minus(char c) {return c == '-';}
+    static bool is_digit(char c) {return c >= 48 && c <= 57;}
 public:
-    int myAtoi(std::string s) {
+    static int myAtoi(std::string s) {
         if (s.empty())
             return 0;
 
@@ -67,7 +67,7 @@ public:
             if (!is_digit(s[l]))
                 return 0;
         }
-        if (!is_plus(s[l]) && !is_minus(s[l]) && !is_digit(s[l]) || l >= s.size())
+        if ((!is_plus(s[l]) && !is_minus(s[l]) && !is_digit(s[l])) || l >= s.size())
             return 0;
 
         ignore_zeros(s, l);
@@ -95,17 +95,17 @@ public:
 
 int main()
 {
-    Solution s;
-    const bool res01 = s.myAtoi("+-12") == 0;
-    const bool res02 = s.myAtoi("  +") == 0;
-    const bool res03 = s.myAtoi("42") == 42;
-    const bool res04 = s.myAtoi("0042") == 42;
-    const bool res05 = s.myAtoi("+0042") == 42;
-    const bool res06 = s.myAtoi("-0042") == -42;
-    const bool res07 = s.myAtoi("   -42") == -42;
-    const bool res08 = s.myAtoi("4193 with words") == 4193;
-    const bool res09 = s.myAtoi("with words 4193 with words") == 0;
-    const bool res10 = s.myAtoi("999999999999999") == 2147483647;
-    const bool res11 = s.myAtoi("-999999999999999") == -2147483648;
-    return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::myAtoi("+-12") == 0);
+  res.push_back(Solution::myAtoi("  +") == 0);
+  res.push_back(Solution::myAtoi("42") == 42);
+  res.push_back(Solution::myAtoi("0042") == 42);
+  res.push_back(Solution::myAtoi("+0042") == 42);
+  res.push_back(Solution::myAtoi("-0042") == -42);
+  res.push_back(Solution::myAtoi("   -42") == -42);
+  res.push_back(Solution::myAtoi("4193 with words") == 4193);
+  res.push_back(Solution::myAtoi("with words 4193 with words") == 0);
+  res.push_back(Solution::myAtoi("999999999999999") == 2147483647);
+  res.push_back(Solution::myAtoi("-999999999999999") == -2147483648);
+  return 0;
 }

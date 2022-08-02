@@ -30,7 +30,7 @@ public:
     val = 0;
     neighbors = std::vector<Node*>();
   }
-  Node(int _val) {
+  explicit Node(int _val) {
     val = _val;
     neighbors = std::vector<Node*>();
   }
@@ -83,7 +83,7 @@ int main() {
     node4->neighbors = { node2.get(), node3.get(), node1.get() };
 
     Solution s;
-    Node* res = s.cloneGraph(node1.get());
+    [[maybe_unused]] Node* res = s.cloneGraph(node1.get());
   }
   
   {
@@ -96,7 +96,7 @@ int main() {
     node3->neighbors = { node1.get()};
 
     Solution s;
-    Node* res = s.cloneGraph(node1.get());
+    [[maybe_unused]] Node* res = s.cloneGraph(node1.get());
   }
   
   return 0;

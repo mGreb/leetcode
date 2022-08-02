@@ -9,7 +9,7 @@
 class Solution
 {
 public:
-	bool checkIfPal(const std::string &s, int pos1, int pos2)
+	static bool checkIfPal(const std::string &s, int pos1, int pos2)
 	{
 		while (pos1 <= pos2)
 		{
@@ -34,13 +34,13 @@ public:
 	
 	void populate(std::vector<std::pair<char, char>> path)
 	{
-		if (path.back().second == pal_table.size() - 1)
+		if (path.back().second == (char)pal_table.size() - 1)
 		{
 			paths.emplace_back(path);
 			return;
 		}
 		const int next = path.back().second + 1;
-		for (int i = 0; i < pal_table[next].size(); ++i)
+		for (size_t i = 0; i < pal_table[next].size(); ++i)
 		{
 			path.emplace_back(pal_table[next][i]);
 			populate(path);
@@ -51,24 +51,24 @@ public:
 	void fillFromPairs(const std::string &s, std::vector<std::vector<std::string>> &res)
 	{
 		res.resize(paths.size());
-		for (int i = 0; i < paths.size(); ++i)
-			for (int j = 0; j < paths[i].size(); ++j)
+		for (size_t i = 0; i < paths.size(); ++i)
+			for (size_t j = 0; j < paths[i].size(); ++j)
 				res[i].emplace_back(std::string(s.begin() + paths[i][j].first,
 					s.begin() + paths[i][j].second + 1));
 	}
 	
-    std::vector<std::vector<std::string>> partition(std::string s)
+	std::vector<std::vector<std::string>> partition(std::string s)
 	{
 		fillPalTable(s);
 		
-		for (int i = 0; i < pal_table[0].size(); ++i)
+		for (size_t i = 0; i < pal_table[0].size(); ++i)
 			populate({ pal_table[0][i] });
 		
 		std::vector<std::vector<std::string>> res;
 		fillFromPairs(s, res);
 		
 		return res;
-    }
+	}
 private:
 	std::vector<std::vector<std::pair<char, char>>> pal_table;
 	std::vector<std::vector<std::pair<char, char>>> paths;

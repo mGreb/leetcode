@@ -10,7 +10,7 @@
 class Solution {
 public:
     void rotate(std::vector<int>& nums, int k) {
-        const size_t n = nums.size();
+        const int n = nums.size();
         if (n < 2 || k == 0) return;
         if (k > n) k = k % n;
         size_t iters = 1;

@@ -9,17 +9,17 @@
 
 class Solution {
 private:
-    void advance(size_t& cnt, int& val1, int& val2, const std::vector<int>& v) {
+    static void advance(size_t& cnt, int& val1, int& val2, const std::vector<int>& v) {
         val1 = val2;
         val2 = v[cnt];
         ++cnt;
     }
-    void compute_median_position(size_t n, size_t &median1, size_t &median2) {
+    static void compute_median_position(size_t n, size_t &median1, size_t &median2) {
         const bool odd = n % 2 == 0;
         median1 = odd ? n / 2 - 1 : n / 2;
         median2 = n / 2;
     }
-    double calc_median(const std::vector<int>& v) {
+    static double calc_median(const std::vector<int>& v) {
         const size_t n = v.size();
         size_t median1 = 0, median2 = 0;
         compute_median_position(n, median1, median2);
@@ -30,7 +30,7 @@ private:
             return v[median2];
     }
 public:
-    double findMedianSortedArrays(std::vector<int> nums1, std::vector<int> nums2) {
+    static double findMedianSortedArrays(std::vector<int> nums1, std::vector<int> nums2) {
         const size_t n = nums1.size();
         const size_t m = nums2.size();
 
@@ -79,18 +79,18 @@ public:
 };
 
 int main() {
-    Solution s;
-    const bool res01 = 0 == s.findMedianSortedArrays({}, {});
-    const bool res02 = 1 == s.findMedianSortedArrays({1}, {});
-    const bool res03 = 1 == s.findMedianSortedArrays({}, {1});
-    const bool res04 = 1.5 == s.findMedianSortedArrays({}, {1, 2});
-    const bool res05 = 1.5 == s.findMedianSortedArrays({1, 2}, {});
-    const bool res06 = 2 == s.findMedianSortedArrays({}, {1, 2, 3});
-    const bool res07 = 2 == s.findMedianSortedArrays({1, 2, 3}, {});
-    const bool res08 = 1.5 == s.findMedianSortedArrays({1}, {2});
-    const bool res09 = 2 == s.findMedianSortedArrays({1, 3}, {2});
-    const bool res10 = 2 == s.findMedianSortedArrays({1}, {2, 3});
-    const bool res11 = 2.5 == s.findMedianSortedArrays({1, 2}, {3, 4});
-    const bool res12 = 2.5 == s.findMedianSortedArrays({1}, {2, 3, 4});
+    std::vector<bool> res;
+    res.push_back(0   == Solution::findMedianSortedArrays({}, {}));
+    res.push_back(1   == Solution::findMedianSortedArrays({1}, {}));
+    res.push_back(1   == Solution::findMedianSortedArrays({}, {1}));
+    res.push_back(1.5 == Solution::findMedianSortedArrays({}, {1, 2}));
+    res.push_back(1.5 == Solution::findMedianSortedArrays({1, 2}, {}));
+    res.push_back(2   == Solution::findMedianSortedArrays({}, {1, 2, 3}));
+    res.push_back(2   == Solution::findMedianSortedArrays({1, 2, 3}, {}));
+    res.push_back(1.5 == Solution::findMedianSortedArrays({1}, {2}));
+    res.push_back(2   == Solution::findMedianSortedArrays({1, 3}, {2}));
+    res.push_back(2   == Solution::findMedianSortedArrays({1}, {2, 3}));
+    res.push_back(2.5 == Solution::findMedianSortedArrays({1, 2}, {3, 4}));
+    res.push_back(2.5 == Solution::findMedianSortedArrays({1}, {2, 3, 4}));
     return 0;
 }

@@ -9,7 +9,7 @@
 
 class Solution {
 public:
-  std::vector<int> topKFrequent(const std::vector<int>& nums, int k) {
+  static std::vector<int> topKFrequent(const std::vector<int>& nums, int k) {
     std::unordered_map<int, int> freq;
     for (auto item : nums)
       ++freq[item];
@@ -23,7 +23,7 @@ public:
     for (const auto& bucket : buckets) {
       for(auto item : bucket) {
         res.emplace_back(item);
-        if (res.size() == k)
+        if ((int)res.size() == k)
           return res;
       }
     }
@@ -32,7 +32,7 @@ public:
 };
 
 int main() {
-  Solution s;
-  auto res = s.topKFrequent({1,1,1,2,2,3}, 2);
+  std::vector<bool> res;
+  res.push_back(Solution::topKFrequent({1,1,1,2,2,3}, 2) == std::vector<int>{1,2});
   return 0;
 }

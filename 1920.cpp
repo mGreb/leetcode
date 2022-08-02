@@ -12,7 +12,7 @@ class Solution {
 public:
 	std::vector<int> buildArray(const std::vector<int>& nums) {
 		std::vector<int> res(nums.size());
-		for (int i = 0; i < nums.size(); ++i)
+		for (size_t i = 0; i < nums.size(); ++i)
 			res[i] = nums[nums[i]];
 		return res;
 	}
@@ -20,6 +20,7 @@ public:
 
 int main() {
 	Solution s;
-	const bool res1 = s.buildArray({5,0,1,2,3,4}) == std::vector<int>{4,5,0,1,2,3};
+	std::vector<bool> res;
+	res.push_back(s.buildArray({5,0,1,2,3,4}) == std::vector<int>{4,5,0,1,2,3});
 	return 0;
 }

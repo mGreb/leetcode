@@ -99,24 +99,24 @@ protected:
 		for (int i = pos; i < pos + k; ++i)
 			new_n[pos] += n[i];
 
-		for (int i = pos + k; i < n.size(); ++i)
+		const int n_size = (int)n.size();
+		for (int i = pos + k; i < n_size; ++i)
 			new_n[i - k + 1] = n[i];
 
 		return new_n;
 	}
 };
 
+// TODO: time limit exceeded
+
 int main()
 {
-	std::vector<int> v = { 3,2,4,1 };
-	int k = 2;
-	v = { 29, 59, 31, 7, 51, 99, 47, 40, 24, 20, 98, 41, 42, 81, 92, 55 };
-	k = 2;
-	v = { 95, 54, 31, 48, 44, 96, 99, 20, 51, 54, 18, 85, 25, 84, 91, 48, 40, 72, 22 };
-	k = 2;
-
 	Solution s;
-	std::cout << s.mergeStones(v, k) << std::endl;
-
+	std::vector<bool> res;
+	res.push_back(s.mergeStones({3,2,4,1}, 2) == 20);
+	res.push_back(s.mergeStones({3,2,4,1}, 3) == -1);
+	res.push_back(s.mergeStones({3,5,1,2,6}, 3) == 25);
+	res.push_back(s.mergeStones({29, 59, 31, 7, 51, 99, 47, 40, 24, 20, 98, 41, 42, 81, 92, 55}, 2) == 3152);
+	res.push_back(s.mergeStones({95, 54, 31, 48, 44, 96, 99, 20, 51, 54, 18, 85, 25, 84, 91, 48, 40, 72, 22}, 2) == 4517);
 	return 0;
 }

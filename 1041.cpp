@@ -19,6 +19,7 @@
  * */
 
 #include <string>
+#include <vector>
 #include <set>
 #include <cmath>
 
@@ -56,9 +57,9 @@ public:
 			switch (instructions[i])
 			{
 				case 'L': rotate(-90); break;
-				case 'R': rotate(90); break;
-				case 'G': move();          break;
-				default:                  break;
+				case 'R': rotate(90);  break;
+				case 'G': move();      break;
+				default:               break;
 			}
 			places.insert({x, y});
 			++i;
@@ -83,6 +84,10 @@ public:
 int main()
 {
     Solution s;
-    bool res = s.isRobotBounded("RGRRRLGGRRGRRRLLGRLRGGRLRRLRLLGGRGRRRRLG");
+    std::vector<bool> res;
+    res.push_back(s.isRobotBounded("RGRRRLGGRRGRRRLLGRLRGGRLRRLRLLGGRGRRRRLG") == true);
+    res.push_back(s.isRobotBounded("GGLLGG") == true);
+    res.push_back(s.isRobotBounded("GG") == false);
+    res.push_back(s.isRobotBounded("GL") == true);
     return 0;
 }

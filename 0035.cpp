@@ -17,7 +17,7 @@
 
 class Solution {
 public:
-  int searchInsert(const std::vector<int>& nums, int target) {
+  static int searchInsert(const std::vector<int>& nums, int target) {
     const size_t n = nums.size();
     
     if (n == 0 || target < nums[0])
@@ -44,23 +44,18 @@ public:
 };
 
 int main() {
-	Solution s;
-  
-  const bool res12 = s.searchInsert({1,3,5}, 4) == 2;
-  const bool res0 = s.searchInsert({1,4,6,7,8,9}, 6) == 2;
-  
-  const bool res1 = s.searchInsert({1,3,5,6}, 5) == 2;
-	const bool res2 = s.searchInsert({1,3,5,6}, 2) == 1;
-	const bool res3 = s.searchInsert({1,3,5,6}, 7) == 4;
-	const bool res4 = s.searchInsert({1,3,5,6}, -10) == 0;
- 
-	const bool res5 = s.searchInsert({1,3,5,6}, 1) == 0;
-	const bool res6 = s.searchInsert({1,3,5,6}, 3) == 1;
-	const bool res8 = s.searchInsert({1,3,5,6}, 6) == 3;
- 
-	const bool res9  = s.searchInsert({1}, 6) == 1;
-	const bool res10 = s.searchInsert({1}, 1) == 0;
-	const bool res11 = s.searchInsert({1}, 0) == 0;
- 
-	return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::searchInsert({1,3,5}, 4) == 2);
+  res.push_back(Solution::searchInsert({1,4,6,7,8,9}, 6) == 2);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 5) == 2);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 2) == 1);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 7) == 4);
+  res.push_back(Solution::searchInsert({1,3,5,6}, -10) == 0);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 1) == 0);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 3) == 1);
+  res.push_back(Solution::searchInsert({1,3,5,6}, 6) == 3);
+  res.push_back(Solution::searchInsert({1}, 6) == 1);
+  res.push_back(Solution::searchInsert({1}, 1) == 0);
+  res.push_back(Solution::searchInsert({1}, 0) == 0);
+  return 0;
 }

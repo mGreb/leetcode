@@ -12,11 +12,11 @@
 
 class Solution {
 public:
-  std::vector<int> twoSum(std::vector<int> nums, int target) {
+  static std::vector<int> twoSum(std::vector<int> nums, int target) {
     std::unordered_map<int, int> m;
-    for (int i = 0; i < nums.size(); ++i)
+    for (size_t i = 0; i < nums.size(); ++i)
       if (m.find(target - nums[i]) != m.end())
-        return {i, m[target - nums[i]]};
+        return {(int)i, m[target - nums[i]]};
       else
         m[nums[i]] = i;
     return {0, 0};
@@ -24,10 +24,10 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res0 = s.twoSum({0,4,3,0}, 0) == std::vector<int>{3,0};
-	const bool res1 = s.twoSum({2,7,11,15}, 9) == std::vector<int>{1,0};
-	const bool res2 = s.twoSum({3,2,4}, 6) == std::vector<int>{2,1};
-	const bool res3 = s.twoSum({3,3}, 6) == std::vector<int>{1,0};
+	std::vector<bool> res;
+	res.push_back(Solution::twoSum({0,4,3,0}, 0) == std::vector<int>{3,0});
+	res.push_back(Solution::twoSum({2,7,11,15}, 9) == std::vector<int>{1,0});
+	res.push_back(Solution::twoSum({3,2,4}, 6) == std::vector<int>{2,1});
+	res.push_back(Solution::twoSum({3,3}, 6) == std::vector<int>{1,0});
 	return 0;
 }

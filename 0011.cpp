@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-  int maxArea(std::vector<int>& height) {
+  static int maxArea(std::vector<int>& height) {
     int max = 0;
     int l = 0, r = height.size() - 1;
     while (l < r) {
@@ -15,3 +15,7 @@ public:
     return max;
   }
 };
+
+int main() {
+  return 0;
+}

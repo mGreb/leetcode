@@ -25,12 +25,12 @@
 #include <vector>
 
 class Solution {
-  void eatZeros(std::vector<int>& v) {
+  static void eatZeros(std::vector<int>& v) {
     while (v.back() == 0 && v.size() > 1)
       v.resize(v.size() - 1);
   }
 
-  std::vector<int> tokenize(std::stringstream& ss) {
+  static std::vector<int> tokenize(std::stringstream& ss) {
     std::vector<int> res;
     
     std::string s;
@@ -42,7 +42,7 @@ class Solution {
     return res;
   }
 public:
-  int compareVersion(const std::string &version1, const std::string &version2) {
+  static int compareVersion(const std::string &version1, const std::string &version2) {
     std::stringstream ss1(version1), ss2(version2);
     
     std::vector<int> v1 = tokenize(ss1);
@@ -59,13 +59,13 @@ public:
 };
 
 int main() {
-  Solution s;
-  const bool res1 = s.compareVersion("1.001.0", "1.2.03") == -1;
-  const bool res2 = s.compareVersion("1.001", "1.001") == 0;
-  const bool res3 = s.compareVersion("1.0", "1.0.0") == 0;
-  const bool res4 = s.compareVersion("0.1", "1.1") == -1;
-  const bool res5 = s.compareVersion("2", "1.1") == 1;
-  const bool res6 = s.compareVersion("1", "0") == 1;
-  const bool res7 = s.compareVersion("2.3", "3.2") == -1;
-	return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::compareVersion("1.001.0", "1.2.03") == -1);
+  res.push_back(Solution::compareVersion("1.001", "1.001") == 0);
+  res.push_back(Solution::compareVersion("1.0", "1.0.0") == 0);
+  res.push_back(Solution::compareVersion("0.1", "1.1") == -1);
+  res.push_back(Solution::compareVersion("2", "1.1") == 1);
+  res.push_back(Solution::compareVersion("1", "0") == 1);
+  res.push_back(Solution::compareVersion("2.3", "3.2") == -1);
+  return 0;
 }

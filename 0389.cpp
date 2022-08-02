@@ -6,22 +6,24 @@
  * */
 
 #include <string>
+#include <vector>
 
 class Solution {
 public:
-    char findTheDifference(std::string s, std::string t) {
-        std::sort(s.begin(), s.end());
-        std::sort(t.begin(), t.end());
-        for (size_t i = 0; i < s.size(); ++i)
-            if (s[i] != t[i])
-                return t[i];
-        return t.back();
-    }
+  char findTheDifference(std::string s, std::string t) {
+    std::sort(s.begin(), s.end());
+    std::sort(t.begin(), t.end());
+    for (size_t i = 0; i < s.size(); ++i)
+      if (s[i] != t[i])
+        return t[i];
+    return t.back();
+  }
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.findTheDifference("abcd", "qdacb") == 'q';
-	const bool res2 = s.findTheDifference("abcd", "dacbf") == 'f';
-    return 0;
+  Solution s;
+  std::vector<bool> res;
+  res.push_back(s.findTheDifference("abcd", "qdacb") == 'q');
+  res.push_back(s.findTheDifference("abcd", "dacbf") == 'f');
+  return 0;
 }

@@ -11,12 +11,10 @@
 
 class Solution {
 public:
-	int maxProfit(const std::vector<int>& p) {
-		int sz = p.size();
-		
+	static int maxProfit(const std::vector<int>& p) {
 		int min_price = p[0];
 		int max_profit = 0;
-		for(int i = 0; i < sz; ++i) {
+		for(size_t i = 0; i < p.size(); ++i) {
 			min_price = std::min(p[i], min_price);
 			max_profit = std::max(max_profit, p[i] - min_price);
 		}
@@ -25,8 +23,8 @@ public:
 };
 
 int main() {
-	Solution s;
-	const bool res1 = s.maxProfit({7,1,5,3,6,4}) == 5;
-	const bool res2 = s.maxProfit({7,6,4,3,1}) == 0;
+	std::vector<bool> res;
+	res.push_back(Solution::maxProfit({7,1,5,3,6,4}) == 5);
+	res.push_back(Solution::maxProfit({7,6,4,3,1}) == 0);
 	return 0;
 }

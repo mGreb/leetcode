@@ -4,11 +4,12 @@
  * */
 
 #include <string>
+#include <vector>
 #include <algorithm>
 
 class Solution {
 public:
-	std::string addBinary(std::string a, std::string b) {
+	static std::string addBinary(std::string a, std::string b) {
 		
 		std::string& big = a.size() > b.size() ? a : b;
 		std::string& small = a.size() <= b.size() ? a : b;
@@ -44,8 +45,7 @@ public:
 
 int main()
 {
-    Solution s;
-    const bool res = s.addBinary("11", "1") == "100";
-    
-    return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::addBinary("11", "1") == "100");
+  return 0;
 }

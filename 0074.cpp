@@ -15,7 +15,7 @@
 #include <vector>
 
 class Solution {
-  int search(const std::vector<int>& nums, int target) {
+  static int search(const std::vector<int>& nums, int target) {
     if (nums.empty())
       return -1;
     
@@ -34,7 +34,7 @@ class Solution {
     return left;
   }
 public:
-  bool searchMatrix(const std::vector<std::vector<int>>& matrix, int target) {
+  static bool searchMatrix(const std::vector<std::vector<int>>& matrix, int target) {
     if (target < matrix[0][0])
       return false;
     
@@ -54,10 +54,10 @@ public:
 
 int main()
 {
-    Solution s;
-    const bool res0 = s.searchMatrix({{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 3) == true;
-    const bool res1 = s.searchMatrix({{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 13) == false;
-    const bool res2 = s.searchMatrix({{1}}, 1) == true;
-    const bool res3 = s.searchMatrix({{1}}, 13) == false;
+    std::vector<bool> res;
+    res.push_back(Solution::searchMatrix({{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 3) == true);
+    res.push_back(Solution::searchMatrix({{1,3,5,7}, {10,11,16,20}, {23,30,34,60}}, 13) == false);
+    res.push_back(Solution::searchMatrix({{1}}, 1) == true);
+    res.push_back(Solution::searchMatrix({{1}}, 13) == false);
     return 0;
 }

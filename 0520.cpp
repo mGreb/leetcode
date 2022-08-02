@@ -8,7 +8,7 @@
  * */
 
 #include <string>
-#include <cassert>
+#include <vector>
 
 class Solution {
 public:
@@ -56,9 +56,10 @@ public:
 
 int main() {
     Solution s;
-    const bool res1 = s.detectCapitalUse("USA") == true;
-	const bool res2 = s.detectCapitalUse("FlaG") == false;
-	const bool res3 = s.detectCapitalUse("Google") == true;
-	const bool res4 = s.detectCapitalUse("leetcode") == true;
-	return 0;
+    std::vector<bool> res;
+    res.push_back(s.detectCapitalUse("USA") == true);
+    res.push_back(s.detectCapitalUse("FlaG") == false);
+    res.push_back(s.detectCapitalUse("Google") == true);
+    res.push_back(s.detectCapitalUse("leetcode") == true);
+    return 0;
 }

@@ -36,7 +36,8 @@ public:
 
 int main() {
     Solution s;
-    const bool res01 = s.sortedSquares({ -4,-1,0,3,10 }) == std::vector<int>{0,1,9,16,100};
-    const bool res02 = s.sortedSquares({ -7,-3,2,3,11 }) == std::vector<int>{4,9,9,49,121};
+    std::vector<bool> res;
+    res.push_back(s.sortedSquares({ -4,-1,0,3,10 }) == std::vector<int>{0,1,9,16,100});
+    res.push_back(s.sortedSquares({ -7,-3,2,3,11 }) == std::vector<int>{4,9,9,49,121});
     return 0;
 }

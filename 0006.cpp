@@ -33,7 +33,7 @@
 
 class Solution {
 public:
-  std::string convert(const std::string& s, const int numRows) {
+  static std::string convert(const std::string& s, const int numRows) {
     if (numRows == 1)
       return s;
     std::vector<std::string> matrix(numRows);
@@ -65,11 +65,11 @@ public:
 };
 
 int main() {
-  Solution s;
-  const bool res0 = s.convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR";
-  const bool res1 = s.convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI";
-  const bool res2 = s.convert("PAYPALISHIRING", 40) == "PAYPALISHIRING";
-  const bool res3 = s.convert("A", 1) == "A";
-  const bool res4 = s.convert("AB", 1) == "AB";
+  std::vector<bool> res;
+  res.push_back(Solution::convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR");
+  res.push_back(Solution::convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI");
+  res.push_back(Solution::convert("PAYPALISHIRING", 40) == "PAYPALISHIRING");
+  res.push_back(Solution::convert("A", 1) == "A");
+  res.push_back(Solution::convert("AB", 1) == "AB");
   return 0;
 }

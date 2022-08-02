@@ -5,10 +5,11 @@
 
 #include <string>
 #include <array>
+#include <vector>
 
 class Solution {
 public:
-    int lengthOfLongestSubstring(std::string s) {
+    static int lengthOfLongestSubstring(std::string s) {
         const size_t n = s.size();
         if (n < 2)
             return n;
@@ -16,7 +17,7 @@ public:
         std::array<int, 128> dict;
         std::fill(dict.begin(), dict.end(), -1);
         size_t max_len = 0, cur_len = 0;
-        size_t begin = 0;
+        int begin = 0;
 
         for (size_t i = 0; i < n; ++i) {
             
@@ -45,14 +46,14 @@ public:
 };
 
 int main() {
-    Solution s;
-    const bool res8 = s.lengthOfLongestSubstring("tmmzuxt") == 5;
-    const bool res1 = s.lengthOfLongestSubstring("abcabc") == 3;
-    const bool res2 = s.lengthOfLongestSubstring("") == 0;
-    const bool res3 = s.lengthOfLongestSubstring("a") == 1;
-    const bool res4 = s.lengthOfLongestSubstring("abc") == 3;
-    const bool res5 = s.lengthOfLongestSubstring("bbbbbbbbb") == 1;
-    const bool res6 = s.lengthOfLongestSubstring("pwwkew") == 3;
-    const bool res7 = s.lengthOfLongestSubstring("abcabcbb") == 3;
-    return 0;
+  std::vector<bool> res;
+  res.push_back(Solution::lengthOfLongestSubstring("tmmzuxt") == 5);
+  res.push_back(Solution::lengthOfLongestSubstring("abcabc") == 3);
+  res.push_back(Solution::lengthOfLongestSubstring("") == 0);
+  res.push_back(Solution::lengthOfLongestSubstring("a") == 1);
+  res.push_back(Solution::lengthOfLongestSubstring("abc") == 3);
+  res.push_back(Solution::lengthOfLongestSubstring("bbbbbbbbb") == 1);
+  res.push_back(Solution::lengthOfLongestSubstring("pwwkew") == 3);
+  res.push_back(Solution::lengthOfLongestSubstring("abcabcbb") == 3);
+  return 0;
 }

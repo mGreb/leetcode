@@ -20,6 +20,7 @@
  * */
 
 #include <string>
+#include <vector>
 #include <stack>
 
 class Solution {
@@ -70,13 +71,14 @@ public:
 };
 
 int main() {
-  const bool res0 = Solution::longestValidParentheses("(()())") == 6;
-  const bool res1 = Solution::longestValidParentheses("(()") == 2;
-  const bool res2 = Solution::longestValidParentheses(")()())") == 4;
-  const bool res3 = Solution::longestValidParentheses("") == 0;
-  const bool res4 = Solution::longestValidParentheses(")") == 0;
-  const bool res5 = Solution::longestValidParentheses("(") == 0;
-  const bool res6 = Solution::longestValidParentheses("()") == 2;
-  const bool res7 = Solution::longestValidParentheses("()(()") == 2;
+  std::vector<bool> res;
+  res.push_back(Solution::longestValidParentheses("(()())") == 6);
+  res.push_back(Solution::longestValidParentheses("(()") == 2);
+  res.push_back(Solution::longestValidParentheses(")()())") == 4);
+  res.push_back(Solution::longestValidParentheses("") == 0);
+  res.push_back(Solution::longestValidParentheses(")") == 0);
+  res.push_back(Solution::longestValidParentheses("(") == 0);
+  res.push_back(Solution::longestValidParentheses("()") == 2);
+  res.push_back(Solution::longestValidParentheses("()(()") == 2);
   return 0;
 }

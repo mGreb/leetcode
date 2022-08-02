@@ -1,9 +1,9 @@
-/*
- * 1137. N-th Tribonacci Number
+/* 1137. N-th Tribonacci Number
  * The Tribonacci sequence Tn is defined as follows:
  *  T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
- *  Given n, return the value of Tn.
- *  */
+ *  Given n, return the value of Tn.*/
+
+#include <vector>
 
 class Solution {
 public:
@@ -27,6 +27,8 @@ public:
 int main()
 {
     Solution s;
-    int res = s.tribonacci(4);
+    std::vector<bool> res;
+    res.push_back(s.tribonacci(4) == 4);
+    res.push_back(s.tribonacci(25) == 1389537);
     return 0;
 }

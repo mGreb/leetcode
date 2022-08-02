@@ -22,8 +22,7 @@
  * int guess(int num);
  */
 
-#include <cstddef>
-#include <climits>
+#include <vector>
 
 class Solution {
 public:
@@ -51,6 +50,7 @@ public:
 
 int main() {
   Solution s;
-  const bool res1 = s.guessNumber(1'000'000) == 10;
+  std::vector<bool> res;
+  res.push_back(s.guessNumber(1'000'000) == 10);
   return 0;
 }

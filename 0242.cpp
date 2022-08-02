@@ -18,6 +18,7 @@ public:
 
 int main() {
   Solution s;
-  auto res = s.isAnagram("rat", "car");
+  std::vector<bool> res;
+  res.push_back(s.isAnagram("rat", "car") == false);
   return 0;
 }
